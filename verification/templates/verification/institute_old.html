@@ -7,33 +7,34 @@
     <link rel="stylesheet" href="{% static 'verification/style.css' %}" type="text/css"/>
 </head>
 <body>
+<div style="position: relative; left: -70%; float: right; overflow: visible; margin: 2em 0;">
+    <h3>Single Ballot Verifier</h3>
 
-<h3>Single Ballot Verifier</h3>
+    <div class="content">
 
-This single-ballot verifier lets you enter an audited ballot<br>
-and verify that it was prepared correctly.
+        This single-ballot verifier lets you enter an audited ballot<br>
+        and verify that it was prepared correctly.
 
-<h4>Your ballot:</h4>
+        <h4>Your ballot:</h4>
 
-<textarea></textarea><br>
+        <textarea rows="10" cols="60"></textarea><br>
 
-<button name="verify">Verify</button>
+        <button class="verify_button" name="verify">Verify</button>
 
-<div>
+        <div class="proof_data">
 
-    loading...<br>
-    smart ballot tracker is {{ ballotTracker }}<br>
-    <br>
-    Ballot Contents:<br>
-    Question {{ question }}: {{ candidate }}
-    <br>
-    Encryption Verified<br>
-    Proofs ok.<br>
+            loading...<br>
+            smart ballot tracker is {{ ballotTracker }}<br>
+            Ballot Contents:<br>
+            Question {{ question }}: {{ candidate }}<br>
+            Encryption Verified<br>
+            Proofs ok.<br>
 
-    <br>
+            <br>
 
-    SUCCESSFUL VERIFICATION, DONE!
-
+            SUCCESSFUL VERIFICATION, DONE!
+        </div>
+    </div>
 </div>
 </body>
 </html>

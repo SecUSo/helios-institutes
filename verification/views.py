@@ -16,6 +16,11 @@ def institute_old_verifier(request):
     return render(request, 'institute_old.html', {})
 
 
+# Button that displays the proof in old version
+def verify_button():
+    pass
+
+
 def institute_one_verifier(request):
     candidate_code = request.candidate_code
     vote = request.vote

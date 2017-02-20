@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="{% static 'verification/style.css' %}" type="text/css"/>
 </head>
 <body>
+
+<script type='text/javascript'>
+
+    function showVerification() {
+        document.getElementById("proof_data").style.visibility = "visible";
+    }
+
+</script>
+
 <div style="margin: 2em 0;">
     <h3>Single Ballot Verifier</h3>
 
@@ -18,16 +27,15 @@
 
         <h4>Your ballot:</h4>
 
-        <form method="post">
+        <form>
             {% csrf_token %}
             <textarea rows="10" cols="63"></textarea><br>
 
-            <button class="verify_button" name="verify">{% trans "Verify" %}</button>
+            <button onclick="showVerification()" class="verify_button" name="verify">{% trans "Verify" %}</button>
 
         </form>
 
-        {% if verification_successful %}
-        <div class="proof_data">
+        <div id="proof_data" style="visibility: hidden">
 
             loading...<br>
             smart ballot tracker is {{ ballotTracker }}<br>
@@ -40,7 +48,6 @@
 
             SUCCESSFUL VERIFICATION, DONE!
         </div>
-        {% endif %}
     </div>
 </div>
 </body>

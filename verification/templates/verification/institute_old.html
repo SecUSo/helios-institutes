@@ -13,7 +13,47 @@
 
     function showVerification() {
         var obj = JSON.parse(document.getElementById("ballot_textarea").value);
+        var candidate_code = obj.choice.substring(50, 52);
         console.log(obj);
+        console.log(candidate_code);
+
+        var candidate = "Invalid Vote"
+
+        switch (candidate_code) {
+            case "01":
+                candidate = "Candidate 1";
+                break;
+            case "02":
+                candidate = "Candidate 2";
+                break;
+            case "03":
+                candidate = "Candidate 3";
+                break;
+            case "04":
+                candidate = "Candidate 4";
+                break;
+            case "05":
+                candidate = "Candidate 5";
+                break;
+            case "06":
+                candidate = "Candidate 6";
+                break;
+            case "07":
+                candidate = "Candidate 7";
+                break;
+            case "08":
+                candidate = "Candidate 8";
+                break;
+            case "09":
+                candidate = "Candidate 9";
+                break;
+            case "10":
+                candidate = "Candidate 10";
+                break;
+            default:
+                candidate = "Invalid Vote";
+        }
+
         document.getElementById("proof_data").style.visibility = "visible";
     }
 

@@ -12,6 +12,7 @@
 <script type='text/javascript'>
 
     function showVerification() {
+
         var obj = JSON.parse(document.getElementById("ballot_textarea").value);
         var candidate_code = obj.choice.substring(50, 52);
         console.log(obj);

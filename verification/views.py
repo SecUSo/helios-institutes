@@ -7,7 +7,6 @@ def test(request):
 
 
 def institute_old_verifier(request):
-    verification_successful = False
     return render(request, 'verification/institute_old.html', {})
 
 

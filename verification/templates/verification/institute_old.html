@@ -17,6 +17,8 @@
         console.log(obj);
         console.log(candidate_code);
 
+        var ballot_tracker = btoa(obj.choice).substring(0, 42);
+
         var candidate = "Invalid Vote"
 
         switch (candidate_code) {
@@ -54,6 +56,8 @@
                 candidate = "Invalid Vote";
         }
 
+        document.getElementById("ballot_tracker_span").innerHTML = ballot_tracker;
+        document.getElementById("candidate_span").innerHTML = candidate;
         document.getElementById("proof_data").style.visibility = "visible";
     }
 
@@ -74,12 +78,12 @@
         <button onclick="showVerification()" class="verify_button" name="verify">{% trans "Verify" %}</button>
 
 
-        <div id="proof_data" style="visibility: hidden">
+        <div id="proof_data" style="visibility: hidden; margin-top: 2em;">
 
             loading...<br>
-            smart ballot tracker is {{ ballotTracker }}<br>
+            smart ballot tracker is <span id="ballot_tracker_span"></span><br>
             Ballot Contents:<br>
-            Question {{ question }}: {{ candidate }}<br>
+            Question: Testquestion : <span id="candidate_span"></span> <br>
             Encryption Verified<br>
             Proofs ok.<br>
 
@@ -88,12 +92,12 @@
             SUCCESSFUL VERIFICATION, DONE!
         </div>
 
-        <div id="proof_data_fail" style="visibility: hidden">
+        <div id="proof_data_fail" style="visibility: hidden; margin-top: 2em;">
 
             loading...<br>
-            smart ballot tracker is {{ ballotTracker }}<br>
+            smart ballot tracker is <span id="ballot_tracker_span"></span><br>
             Ballot Contents:<br>
-            Question {{ question }}: {{ candidate }}<br>
+            Question: Testquestion : <span id="candidate_span"></span><br>
             Encryption Verified<br>
             Proofs ok.<br>
 

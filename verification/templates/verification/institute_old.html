@@ -12,6 +12,8 @@
 <script type='text/javascript'>
 
     function showVerification() {
+        var obj = JSON.parse(document.getElementById("ballot_textarea").value);
+        console.log(obj);
         document.getElementById("proof_data").style.visibility = "visible";
     }
 
@@ -27,13 +29,10 @@
 
         <h4>Your ballot:</h4>
 
-        <form>
-            {% csrf_token %}
-            <textarea rows="10" cols="63"></textarea><br>
+        <textarea id="ballot_textarea" rows="10" cols="63"></textarea><br>
 
-            <button onclick="showVerification()" class="verify_button" name="verify">{% trans "Verify" %}</button>
+        <button onclick="showVerification()" class="verify_button" name="verify">{% trans "Verify" %}</button>
 
-        </form>
 
         <div id="proof_data" style="visibility: hidden">
 
@@ -48,6 +47,21 @@
 
             SUCCESSFUL VERIFICATION, DONE!
         </div>
+
+        <div id="proof_data_fail" style="visibility: hidden">
+
+            loading...<br>
+            smart ballot tracker is {{ ballotTracker }}<br>
+            Ballot Contents:<br>
+            Question {{ question }}: {{ candidate }}<br>
+            Encryption Verified<br>
+            Proofs ok.<br>
+
+            <br>
+
+            PROBLEM - THIS BALLOT DOES NOT VERIFY.
+        </div>
+
     </div>
 </div>
 </body>

@@ -7,12 +7,7 @@ def test(request):
 
 
 def institute_old_verifier(request):
-    candidate_code = request.candidate_code
-    vote = request.vote
-    ballotTracker = request.tracker
-    print(candidate_code)
-    candidate = Candidate.objects.get(pk=candidate_code)
-    question = Question.objects.all()[0]
+    verification_successful = False
     return render(request, 'verification/institute_old.html', {})
 
 

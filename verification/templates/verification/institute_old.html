@@ -66,8 +66,12 @@
 
 </script>
 
-<div style="margin: 2em 0;">
-    <h3>Single Ballot Verifier</h3>
+<div class="header_bsi"><img src="{% static 'verification/images/bsi_logo.png' %}"></div>
+
+<div>
+
+    <div class="headline">
+        <h2>Single Ballot Verifier</h2></div>
 
     <div class="content">
 
@@ -76,7 +80,7 @@
 
         <h4>Your ballot:</h4>
 
-        <textarea id="ballot_textarea" rows="10" cols="63"></textarea><br>
+        <textarea id="ballot_textarea" rows="10" cols="55"></textarea><br>
 
         <button onclick="showVerification()" class="verify_button" name="verify">{% trans "Verify" %}</button>
 
@@ -84,7 +88,7 @@
         <div id="proof_data" style="visibility: hidden; margin-top: 2em;">
 
             loading...<br>
-            smart ballot tracker is <span id="ballot_tracker_span"></span><br>
+            smart ballot tracker is <b><span id="ballot_tracker_span"></span></b><br>
             Ballot Contents:<br>
             Question: Testquestion : <span id="candidate_span"></span> <br>
             Encryption Verified<br>

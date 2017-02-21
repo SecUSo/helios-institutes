@@ -14,11 +14,11 @@
     function showVerification() {
 
         var obj = JSON.parse(document.getElementById("ballot_textarea").value);
-        var candidate_code = obj.choice.substring(100, 102);
+        var candidate_code = obj.randomness.substring(100, 102);
         console.log(obj);
         console.log(candidate_code);
 
-        var ballot_tracker = btoa(obj.choice).substring(0, 42);
+        var ballot_tracker = btoa(obj.randomness).substring(0, 42);
 
         var candidate = "Invalid Vote"
 

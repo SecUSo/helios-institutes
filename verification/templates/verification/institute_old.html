@@ -13,12 +13,9 @@
 
     function showVerification() {
 
-        //console.log("{" + document.getElementById("ballot_textarea").value.substring(15511,15730) + "}");
-
-        //var obj = JSON.parse("{" + document.getElementById("ballot_textarea").value.substring(15511,15730) + "}");
-
         var obj = JSON.parse(document.getElementById("ballot_textarea").value);
         console.log(obj);
+
         var candidate_code = obj["answers"][0]["randomness"].substring(100, 102);
 
         console.log(candidate_code);

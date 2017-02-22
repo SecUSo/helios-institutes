@@ -1,0 +1,67 @@
+body {
+    font-family: "Droid Serif";
+    color: #393f46;
+}
+
+.content {
+    margin: 2em 0 0 4em;
+    padding-top: 2em;
+}
+
+h2 {
+    padding-left: 3.2em;
+    background-color: #336699;
+    color: white;
+}
+
+.header_bsi {
+    background-color: white;
+    padding-top: 13px;
+}
+
+.header_bsi img {
+    padding-left: 4em;
+    padding-bottom: 3em;
+    padding-top: 1em;
+}
+
+.headline {
+    padding-bottom: 1em;
+    padding-top: 1em;
+    background-color: #336699;
+    margin: -1em;
+}
+
+.proof_data {
+    margin-top: 3em;
+}
+
+.verify_button {
+    margin-top: 2em;
+}
+
+textarea {
+    resize: none;
+    border-radius: 5px;
+    border: 1px solid #393f46;
+    font-size: 120%;
+}
+
+textarea:hover {
+    border: 1px solid #369;
+}
+
+button {
+    font-weight: bold;
+    color: white;
+    background-color: #336699;
+    padding: 4px 10px 7px;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #393f46;
+    color: white;
+
+}

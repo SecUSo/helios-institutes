@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head lang="de">
+    <meta charset="UTF-8">
+    <title>Single Ballot Verifier</title>
+    <link rel="stylesheet" href="{% static 'verification/style.css' %}" type="text/css"/>
+</head>
+<body>
+
+<script type='text/javascript'>
+
+    function showVerification() {
+
+        var obj = JSON.parse(document.getElementById("ballot_textarea").value);
+        console.log(obj);
+
+        var candidate_code = obj["answers"][0]["randomness"].substring(100, 102);
+
+        console.log(candidate_code);
+
+        var ballot_tracker = btoa(obj["answers"][0]["randomness"]).substring(0, 42);
+
+        var candidate = "Invalid Vote"
+
+        switch (candidate_code) {
+            case "01":
+                candidate = "Candidate 1";
+                break;
+            case "02":
+                candidate = "Candidate 2";
+                break;
+            case "03":
+                candidate = "Candidate 3";
+                break;
+            case "04":
+                candidate = "Candidate 4";
+                break;
+            case "05":
+                candidate = "Candidate 5";
+                break;
+            case "06":
+                candidate = "Candidate 6";
+                break;
+            case "07":
+                candidate = "Candidate 7";
+                break;
+            case "08":
+                candidate = "Candidate 8";
+                break;
+            case "09":
+                candidate = "Candidate 9";
+                break;
+            case "10":
+                candidate = "Candidate 10";
+                break;
+            default:
+                candidate = "Invalid Vote";
+        }
+
+        document.getElementById("ballot_tracker_span").innerHTML = ballot_tracker;
+        document.getElementById("candidate_span").innerHTML = candidate;
+        document.getElementById("proof_data").style.visibility = "visible";
+    }
+
+</script>
+
+<div class="header_bsi"><img src="{% static 'verification/images/bsi_logo.png' %}"></div>
+
+<div>
+
+    <div class="headline">
+        <h2>Single Ballot Verifier</h2></div>
+
+    <div class="content">
+
+        This single-ballot verifier lets you enter an audited ballot<br>
+        and verify that it was prepared correctly.
+
+        <h4>Your ballot:</h4>
+
+        <textarea id="ballot_textarea" rows="10" cols="55"></textarea><br>
+
+        <button onclick="showVerification()" class="verify_button" name="verify">{% trans "Verify" %}</button>
+
+
+        <div id="proof_data" style="visibility: hidden; margin-top: 2em;">
+
+            laden...<br>
+            smart ballot tracker ist<span id="ballot_tracker_span"></span><br>
+            Inhalt des Stimmzettels:<br>
+            Frage: Testquestion : <span id="candidate_span"></span><br>
+            Verschlüsselung verifiziert.<br>
+            Beweise ok.
+
+            <br>
+
+            ERFOLGREICHE VERIFIKATION, FERTIG!
+        </div>
+
+        <div id="proof_data_fail" style="visibility: hidden; margin-top: 2em;">
+
+            laden...<br>
+            smart ballot tracker ist<span id="ballot_tracker_span"></span><br>
+            Inhalt des Stimmzettels:<br>
+            Frage: Testquestion : <span id="candidate_span"></span><br>
+            Verschlüsselung verifiziert.<br>
+            Beweise ok.
+
+            <br>
+
+            PROBLEM - DER STIMMZETTEL KANN NICHT VERIFIZIERT WERDEN.
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 {% load staticfiles %}
-{% load i18n %}
 <html>
 <head lang="en">
     <meta charset="UTF-8">
@@ -71,46 +70,46 @@
 <div>
 
     <div class="headline">
-        <h2>{% trans "Single Ballot Verifier" %}</h2></div>
+        <h2>Single Ballot Verifier</h2></div>
 
     <div class="content">
 
-        {% trans "This single-ballot verifier lets you enter an audited ballot" %}<br>
-        {% trans "and verify that it was prepared correctly." %}
+        This single-ballot verifier lets you enter an audited ballot<br>
+        and verify that it was prepared correctly.
 
         <h4>Your ballot:</h4>
 
         <textarea id="ballot_textarea" rows="10" cols="55"></textarea><br>
 
-        <button onclick="showVerification()" class="verify_button" name="verify">{% trans "Verify" %}</button>
+        <button onclick="showVerification()" class="verify_button" name="verify">Verify</button>
 
 
         <div id="proof_data" style="visibility: hidden; margin-top: 2em;">
 
-            {% trans "loading..." %}<br>
-            {% trans "smart ballot tracker is " %}<b><span id="ballot_tracker_span"></span></b><br>
-            {% trans "Ballot Contents:" %}<br>
-            {% trans "Question: " %}Testquestion : <span id="candidate_span"></span> <br>
-            {% trans "Encryption Verified" %}<br>
-            {% trans "Proofs ok." %}<br>
+            loading...<br>
+            smart ballot tracker is<b><span id="ballot_tracker_span"></span></b><br>
+            Ballot Contents:<br>
+            Question: Testquestion : <span id="candidate_span"></span> <br>
+            Encryption Verified<br>
+            Proofs ok.<br>
 
             <br>
 
-            {% trans "SUCCESSFUL VERIFICATION, DONE!" %}
+            SUCCESSFUL VERIFICATION, DONE!
         </div>
 
         <div id="proof_data_fail" style="visibility: hidden; margin-top: 2em;">
 
-            {% trans "loading..." %}<br>
-            {% trans "smart ballot tracker is " %}<span id="ballot_tracker_span"></span><br>
-            {% trans "Ballot Contents:" %}<br>
-            {% trans "Question:"%} Testquestion : <span id="candidate_span"></span><br>
-            {% trans "Encryption Verified" %}<br>
-            {% trans "Proofs ok." %}<br>
+            loading...<br>
+            smart ballot tracker is <span id="ballot_tracker_span"></span><br>
+            Ballot Contents:" <br>
+            Question: Testquestion : <span id="candidate_span"></span><br>
+            Encryption Verified<br>
+            Proofs ok.<br>
 
             <br>
 
-            {% trans "PROBLEM - THIS BALLOT DOES NOT VERIFY." %}
+            PROBLEM - THIS BALLOT DOES NOT VERIFY.
         </div>
 
     </div>

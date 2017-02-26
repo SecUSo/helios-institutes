@@ -1,21 +1,21 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-import base64
 
 
+@csrf_exempt
 def institute_old_verifier(request):
     return render(request, 'verification/bsi_old.html', {})
 
 
 @csrf_exempt
 def institute_one_verifier(request):
-    print(request)
+    print(request.POST)
     vote = request.POST['vote']
-    candidate_code = vote[101:103]
-    print(candidate_code)
+    ballot_tracker = request.POST['tracker']
+    candidate_code = vote[100:102]
     candidate = decrypt_candidate(candidate_code=candidate_code)
-    ballotTracker = base64.standard_b64decode(vote)
-    return render(request, 'verification/institute_one.html', {})
+    return render(request, 'verification/institute_one.html',
+                  {'candidate': candidate, 'ballot_tracker': ballot_tracker})
 
 
 def decrypt_candidate(candidate_code):
@@ -43,4 +43,4 @@ def decrypt_candidate(candidate_code):
         "20": "PBC",
         "21": "BIG",
     }
-    return switcher.get(candidate_code, "Invalid Vote")
+    return switcher.get(candidate_code, "Ungültige Stimme")

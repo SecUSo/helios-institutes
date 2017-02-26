@@ -4,18 +4,23 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Institute XY Verifier</title>
-    <link rel="stylesheet" href="{% static 'verification/style.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'verification/style-bsi.css' %}" type="text/css"/>
 </head>
 <body>
 
-<h3>Institute XY Verifier</h3>
+<div class="header_bsi"><img src="{% static 'verification/images/bsi_logo.png' %}"></div>
 
-Please compare the displayed check code with your check code.<br>
-{% csrf_token %}<br>
-<br>
-Please compare the displayed candidate with the candidate you have voted for <br>
-{% csrf_token %}<br>
+<div class="headline">
+    <h2>Single Ballot Verifier</h2></div>
 
+<div class="content">
+
+    Please compare the displayed check code with your check code.<br><br>
+    <span style="font-weight: bold;">{{ ballot_tracker }}</span> <br>
+    <br>
+    Please compare the displayed candidate with the candidate you have voted for. <br><br>
+    <span style="font-weight: bold;">{{ candidate }}</span> <br>
+</div>
 </body>
 </html>
 

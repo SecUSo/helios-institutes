@@ -65,3 +65,8 @@ button:hover {
     color: white;
 
 }
+
+.highlight_box {
+    color: #336699;
+    font-weight: bold;
+}

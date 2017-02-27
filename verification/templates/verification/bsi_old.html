@@ -17,11 +17,11 @@
 
         var candidate_code = obj["answers"][0]["randomness"].substring(100, 102);
 
-        console.log(candidate_code);
+        console.log("Code: " + candidate_code);
 
-        var ballot_tracker = btoa(obj["answers"][0]["randomness"]).substring(0, 42);
+        var ballot_tracker = btoa(obj["answers"][0]["randomness"]).substring(0, 16);
 
-        var candidate = "Invalid Vote"
+        var candidate = "";
 
         switch (candidate_code) {
             case "01":
@@ -120,9 +120,9 @@
         <div id="proof_data" style="visibility: hidden; margin-top: 2em;">
 
             loading...<br>
-            smart ballot tracker is <b><span id="ballot_tracker_span"></span></b><br>
+            Smart ballot tracker is <b><span id="ballot_tracker_span"></span></b><br>
             Ballot Contents:<br>
-            Question: Testquestion : <span id="candidate_span"></span> <br>
+            You voted for: <span id="candidate_span"></span> <br>
             Encryption Verified<br>
             Proofs ok.<br>
 
@@ -133,10 +133,10 @@
 
         <div id="proof_data_fail" style="visibility: hidden; margin-top: 2em;">
 
-            loading...<br>
-            smart ballot tracker is <span id="ballot_tracker_span"></span><br>
+            Loading...<br>
+            Smart ballot tracker is <span id="ballot_tracker_span"></span><br>
             Ballot Contents:" <br>
-            Question: Testquestion : <span id="candidate_span"></span><br>
+            You voted for:  <span id="candidate_span"></span><br>
             Encryption Verified<br>
             Proofs ok.<br>
 

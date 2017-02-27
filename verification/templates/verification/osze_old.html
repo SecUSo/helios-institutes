@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Organisation für Sicherheit und Zusammenarbeit in Europa | OSZE</title>
+    <link rel="stylesheet" href="{% static 'verification/style-osze.css' %}" type="text/css"/>
+</head>
+<body>
+
+<script type='text/javascript'>
+
+    function showVerification() {
+
+        var obj = JSON.parse(document.getElementById("ballot_textarea").value);
+        console.log(obj);
+
+        var candidate_code = obj["answers"][0]["randomness"].substring(100, 102);
+
+        console.log("Code: " + candidate_code);
+
+        var ballot_tracker = btoa(obj["answers"][0]["randomness"]).substring(0, 16);
+
+        var candidate = "";
+
+        switch (candidate_code) {
+            case "01":
+                candidate = "CDU";
+                break;
+            case "02":
+                candidate = "SPD";
+                break;
+            case "03":
+                candidate = "DIE LINKE";
+                break;
+            case "04":
+                candidate = "GRÜNE";
+                break;
+            case "05":
+                candidate = "CSU";
+                break;
+            case "06":
+                candidate = "FDP";
+                break;
+            case "07":
+                candidate = "AFD";
+                break;
+            case "08":
+                candidate = "PIRATEN";
+                break;
+            case "09":
+                candidate = "FREIE WÄHLER";
+                break;
+            case "10":
+                candidate = "NPD";
+                break;
+            case "11":
+                candidate = "TIERSCHUTZPARTEI";
+                break;
+            case "12":
+                candidate = "ÖDP";
+                break;
+            case "13":
+                candidate = "REP";
+                break;
+            case "14":
+                candidate = "DIE PARTEI";
+                break;
+            case "15":
+                candidate = "PRO DEUTSCHLAND";
+                break;
+            case "16":
+                candidate = "BP";
+                break;
+            case "17":
+                candidate = "Volksabstimmung";
+                break;
+            case "18":
+                candidate = "PDV";
+                break;
+            case "19":
+                candidate = "MLPD";
+                break;
+            case "20":
+                candidate = "PBC";
+                break;
+            case "21":
+                candidate = "BIG";
+                break;
+            default:
+                candidate = "Invalid Vote";
+        }
+
+        document.getElementById("ballot_tracker_span").innerHTML = ballot_tracker;
+        document.getElementById("candidate_span").innerHTML = candidate;
+        document.getElementById("proof_data").style.visibility = "visible";
+    }
+
+</script>
+
+<div class="header_osze"><img src="{% static 'verification/images/osze_logo.png' %}"></div>
+
+<div>
+
+    <div class="headline">
+        <h3>SINGLE BALLOT VERIFIER</h3></div>
+
+    <div class="content">
+
+        This single-ballot verifier lets you enter an audited ballot<br>
+        and verify that it was prepared correctly.
+
+        <h4>Your ballot:</h4>
+
+        <textarea id="ballot_textarea" rows="10" cols="55"></textarea><br>
+
+        <button onclick="showVerification()" class="verify_button" name="verify">Verify</button>
+
+
+        <div id="proof_data" style="visibility: hidden; margin-top: 2em;">
+
+            loading...<br>
+            Smart ballot tracker is <b><span id="ballot_tracker_span"></span></b><br>
+            Ballot Contents:<br>
+            You voted for: <span id="candidate_span"></span> <br>
+            Encryption Verified<br>
+            Proofs ok.<br>
+
+            <br>
+
+            SUCCESSFUL VERIFICATION, DONE!
+        </div>
+
+        <div id="proof_data_fail" style="visibility: hidden; margin-top: 2em;">
+
+            Loading...<br>
+            Smart ballot tracker is <span id="ballot_tracker_span"></span><br>
+            Ballot Contents:" <br>
+            You voted for:  <span id="candidate_span"></span><br>
+            Encryption Verified<br>
+            Proofs ok.<br>
+
+            <br>
+
+            PROBLEM - THIS BALLOT DOES NOT VERIFY.
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

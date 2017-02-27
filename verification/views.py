@@ -8,6 +8,11 @@ def institute_old_verifier(request):
 
 
 @csrf_exempt
+def institute_osze_old(request):
+    return render(request, 'verification/osze_old.html', {})
+
+
+@csrf_exempt
 def institute_one_verifier(request):
     print(request.POST)
     vote = request.POST['vote']
@@ -15,6 +20,17 @@ def institute_one_verifier(request):
     candidate_code = vote[100:102]
     candidate = decrypt_candidate(candidate_code=candidate_code)
     return render(request, 'verification/institute_one.html',
+                  {'candidate': candidate, 'ballot_tracker': ballot_tracker})
+
+
+@csrf_exempt
+def institute_two_verifier(request):
+    print(request.POST)
+    vote = request.POST['vote']
+    ballot_tracker = request.POST['tracker']
+    candidate_code = vote[100:102]
+    candidate = decrypt_candidate(candidate_code=candidate_code)
+    return render(request, 'verification/institute_two.html',
                   {'candidate': candidate, 'ballot_tracker': ballot_tracker})
 
 

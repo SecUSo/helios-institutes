@@ -4,12 +4,12 @@ from django.views.decorators.csrf import csrf_exempt
 
 @csrf_exempt
 def institute_old_verifier(request):
-    return render(request, 'verification/bsi_old.html', {})
+    return render(request, 'verification/bsi_oldDE.html', {})
 
 
 @csrf_exempt
 def institute_osze_old(request):
-    return render(request, 'verification/osze_old.html', {})
+    return render(request, 'verification/osze_oldDE.html', {})
 
 
 @csrf_exempt

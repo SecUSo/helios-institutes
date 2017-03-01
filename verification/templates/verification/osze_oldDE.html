@@ -3,19 +3,25 @@
 <html>
 <head lang="de">
     <meta charset="UTF-8">
-    <title>Stimmzettelverifizierer</title>
-    <link rel="stylesheet" href="{% static 'verification/style-bsi.css' %}" type="text/css"/>
+    <title>Organisation für Sicherheit und Zusammenarbeit in Europa | OSZE</title>
+    <link rel="stylesheet" href="{% static 'verification/style-osze.css' %}" type="text/css"/>
 </head>
 <body>
 
 <script type='text/javascript'>
+
     function showVerification() {
+
         var obj = JSON.parse(document.getElementById("ballot_textarea").value);
         console.log(obj);
+
         var candidate_code = obj["answers"][0]["randomness"].substring(100, 102);
-        console.log(candidate_code);
+
+        console.log("Code: " + candidate_code);
+
         var ballot_tracker = btoa(obj["answers"][0]["randomness"]).substring(0, 16);
-        var candidate;
+
+        var candidate = "";
 
         switch (candidate_code) {
             case "01":
@@ -82,20 +88,22 @@
                 candidate = "BIG";
                 break;
             default:
-                candidate = "Ungültige Stimme";
+                candidate = "Invalid Vote";
         }
+
         document.getElementById("ballot_tracker_span").innerHTML = ballot_tracker;
         document.getElementById("candidate_span").innerHTML = candidate;
         document.getElementById("proof_data").style.visibility = "visible";
     }
+
 </script>
 
-<div class="header_bsi"><img src="{% static 'verification/images/bsi_logo.png' %}"></div>
+<div class="header_osze"><img src="{% static 'verification/images/osze_logo.png' %}"></div>
 
 <div>
 
     <div class="headline">
-        <h2>Stimmzettelverifizierer</h2></div>
+        <h3>STIMMZETTELVERIFIZIERER</h3></div>
 
     <div class="content">
 
@@ -106,7 +114,7 @@
 
         <textarea id="ballot_textarea" rows="10" cols="55"></textarea><br>
 
-        <button onclick="showVerification()" class="verify_button" name="verify">Verifizieren</button>
+        <button onclick="showVerification()" class="verify_button" name="verify">Verify</button>
 
 
         <div id="proof_data" style="visibility: hidden; margin-top: 2em;">

@@ -14,8 +14,8 @@ This page corresponds to an improvement suggestion for ballot verification which
 ### Building 
 
 Requirements:
-* Python 2.7
-* Django 1.6
+* Python 3.5
+* Django 1.11
 
 There are two options of hosting the application: With or without virtualenv 
 

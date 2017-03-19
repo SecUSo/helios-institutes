@@ -31,59 +31,57 @@
                 candidate = "GRÜNE";
                 break;
             case "05":
-                candidate = "CSU";
-                break;
-            case "06":
                 candidate = "FDP";
                 break;
-            case "07":
+            case "06":
                 candidate = "AFD";
                 break;
-            case "08":
+            case "07":
                 candidate = "PIRATEN";
                 break;
-            case "09":
+            case "08":
                 candidate = "FREIE WÄHLER";
                 break;
-            case "10":
+            case "09":
                 candidate = "NPD";
                 break;
-            case "11":
+            case "10":
                 candidate = "TIERSCHUTZPARTEI";
                 break;
-            case "12":
+            case "11":
                 candidate = "ÖDP";
                 break;
-            case "13":
+            case "12":
                 candidate = "REP";
                 break;
-            case "14":
+            case "13":
                 candidate = "DIE PARTEI";
                 break;
-            case "15":
+            case "14":
                 candidate = "PRO DEUTSCHLAND";
                 break;
-            case "16":
+            case "15":
                 candidate = "BP";
                 break;
-            case "17":
+            case "16":
                 candidate = "Volksabstimmung";
                 break;
-            case "18":
+            case "17":
                 candidate = "PDV";
                 break;
-            case "19":
+            case "18":
                 candidate = "MLPD";
                 break;
-            case "20":
+            case "19":
                 candidate = "PBC";
                 break;
-            case "21":
+            case "20":
                 candidate = "BIG";
                 break;
             default:
                 candidate = "Ungültige Stimme";
         }
+
         document.getElementById("ballot_tracker_span").innerHTML = ballot_tracker;
         document.getElementById("candidate_span").innerHTML = candidate;
         document.getElementById("proof_data").style.visibility = "visible";
@@ -110,28 +108,6 @@
 
 
         <div id="proof_data" style="visibility: hidden; margin-top: 2em;">
-
-            laden...<br>
-<<<<<<< HEAD
-            Stimmzettel-Tracking-Code ist <span id="ballot_tracker_span"></span><br>
-            Inhalt des Stimmzettels:<br>
-            <span id="candidate_span"></span><br>
-            Verschlüsselung verifiziert.<br>
-            Beweise ok.<br>
-=======
-            Prüf-Code ist <span id="ballot_tracker_span"></span><br>
-            Inhalt des Stimmzettels:<br>
-            <span id="candidate_span"></span><br>
-            Verschlüsselung überprüft.<br>
-            Beweise ok.
->>>>>>> 3233df9e0f870d4dca7561544412f79abb0bee64
-
-            <br>
-
-            ERFOLGREICHE ÜBERPRÜFUNG, FERTIG!
-        </div>
-
-        <div id="proof_data_fail" style="visibility: hidden; margin-top: 2em;">
 
             laden...<br>
             Prüf-Code ist<span id="ballot_tracker_span"></span><br>

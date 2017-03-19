@@ -107,7 +107,21 @@
         <button onclick="showVerification()" class="verify_button" name="verify">Verifizieren</button>
 
 
-        <div id="proof_data" style="visibility: hidden; margin-top: 2em;">
+   <div id="proof_data" style="visibility: hidden; margin-top: 2em;">
+
+            laden...<br>
+            Prüf-Code ist <span id="ballot_tracker_span"></span><br>
+            Inhalt des Stimmzettels:<br>
+            <span id="candidate_span"></span><br>
+            Verschlüsselung überprüft.<br>
+            Beweise ok.
+
+            <br>
+
+            ERFOLGREICHE ÜBERPRÜFUNG, FERTIG!
+        </div>
+
+        <div id="proof_data_fail" style="visibility: hidden; margin-top: 2em;">
 
             laden...<br>
             Prüf-Code ist<span id="ballot_tracker_span"></span><br>
@@ -120,6 +134,7 @@
 
             PROBLEM - DER STIMMZETTEL KANN NICHT ÜBERPRÜFUNG WERDEN.
         </div>
+
 
     </div>
 </div>

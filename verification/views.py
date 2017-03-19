@@ -18,6 +18,7 @@ def institute_one_verifier(request):
     vote = request.POST['vote']
     ballot_tracker = request.POST['tracker']
     candidate_code = vote[100:102]
+    print(candidate_code)
     candidate = decrypt_candidate(candidate_code=candidate_code)
     return render(request, 'verification/institute_oneDE.html',
                   {'candidate': candidate, 'ballot_tracker': ballot_tracker})

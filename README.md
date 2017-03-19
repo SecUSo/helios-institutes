@@ -21,14 +21,14 @@ There are two options of hosting the application: With or without virtualenv
 
 If you intend to use virtualvenv, navigate to your desired directory and start by: 
 
-    pyenv env
-    source env/bin/activate
+    pyvenv venv
+    source venv/bin/activate
 
 On a production server this probably is located somewhere in /var/www , on a developers computer this normally is located somewhere in your $HOME.
 
 Now you can clone the sourcecode of the application into your directory:
 
-    https://github.com/Yonjuni/helios-institutes.git
+    https://github.com/SECUSO/helios-institutes.git
 
 After that you should have a subdirectory institutes/ and if you created a virtualenv also a subdirectory env/. The actual application are is in the verification/ directory. Please navigate into the institutes directory. 
 

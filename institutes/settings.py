@@ -25,7 +25,7 @@ SECRET_KEY = '=!m!j2vo9q99ag-z7*qxvzsxgxrerk+6#39fe^fgk0bgip0*5i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'wahlueberpruefung.bsi.de']
+ALLOWED_HOSTS = ['0.0.0.0', 'wahlueberpruefung.bsi.de', 'wahlueberpruefung.osze.de']
 
 
 # Application definition

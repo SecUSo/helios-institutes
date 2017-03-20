@@ -3,18 +3,40 @@
 <html>
 <head lang="de">
     <meta charset="UTF-8">
-    <title>Stimmzettelverifizierer</title>
+    <title>BSI | Wahlüberprüfung</title>
     <link rel="stylesheet" href="{% static 'verification/style-bsi.css' %}" type="text/css"/>
 </head>
 <body>
 
 <script type='text/javascript'>
+
+    var dictionaryBase64 = {"O": 'o', "I": 'i', "l": 'L'};
+
+    function deconfuse(regularBase64Hash, dictionary) {
+        var res = regularBase64Hash.replace(/O/g, dictionary.O);
+        res = res.replace(/I/g, dictionary.I);
+        res = res.replace(/l/g, dictionary.l);
+        return res;
+    }
+
+    function split43In4s(hash43Base64) {
+        var res = hash43Base64.substr(0, 4);
+        var separator = "-";
+        for (var i = 1; i < 11; i++) {
+            res += separator + hash43Base64.substr(i * 4, 4);
+        }
+        return res;
+    }
+
     function showVerification() {
         var obj = JSON.parse(document.getElementById("ballot_textarea").value);
         console.log(obj);
         var candidate_code = obj["answers"][0]["randomness"].substring(100, 102);
         console.log(candidate_code);
-        var ballot_tracker = btoa(obj["answers"][0]["randomness"]).substring(0, 16);
+
+        var temp_tracker = btoa(obj["answers"][0]["randomness"]).substring(0, 43);
+        var deconfused_tracker = deconfuse(temp_tracker, dictionaryBase64);
+        var ballot_tracker = split43In4s(deconfused_tracker);
         var candidate;
 
         switch (candidate_code) {
@@ -93,48 +115,33 @@
 <div>
 
     <div class="headline">
-        <h2>Stimmzettelverifizierer</h2></div>
+        <h2>Wahlüberprüfung</h2></div>
 
     <div class="content">
 
-        In diesen Stimmzettelverifizierer können Sie Ihren Stimmzettel eingeben.<br>
-        und überprüfen, ob er korrekt erstellt wurde.
+        <span style="text-decoration: underline; font-weight: bold">Fügen</span> Sie Ihre Stimme in das Textfeld ein und
+        <span style="text-decoration: underline; font-weight: bold">klicken</span> Sie anschließend auf
+        Überprüfung starten.
 
-        <h4>Ihr Stimmzettel:</h4>
+        <h4>Ihre Stimme:</h4>
 
         <textarea id="ballot_textarea" rows="10" cols="55"></textarea><br>
 
-        <button onclick="showVerification()" class="verify_button" name="verify">Verifizieren</button>
+        <button onclick="showVerification()" class="verify_button" name="verify">Überprüfung starten</button>
 
 
-   <div id="proof_data" style="visibility: hidden; margin-top: 2em;">
+        <div id="proof_data" style="visibility: hidden; margin-top: 2em; line-height: 2em;">
 
-            laden...<br>
-            Prüf-Code ist <span id="ballot_tracker_span"></span><br>
-            Inhalt des Stimmzettels:<br>
-            <span id="candidate_span"></span><br>
-            Verschlüsselung überprüft.<br>
-            Beweise ok.
+            Wenn <span style="font-weight: bold; color: #336699" id="ballot_tracker_span"></span> ihr Prüf-Code ist<br>
+            und Sie <span style="font-weight: bold; color: #336699" id="candidate_span"></span> angekreuzt haben, war
+            Ihre Stimme korrekt verschlüsselt.<br>
 
             <br>
 
-            ERFOLGREICHE ÜBERPRÜFUNG, FERTIG!
+            Falls eines der beiden nicht übereinstimmt, holen Sie bitte die Versuchsleitung. <br>
+
+            Sie können das Tab nun <span style="font-weight:bold; text-decoration: underline">schließen</span>.
         </div>
-
-        <div id="proof_data_fail" style="visibility: hidden; margin-top: 2em;">
-
-            laden...<br>
-            Prüf-Code ist<span id="ballot_tracker_span"></span><br>
-            Inhalt des Stimmzettels:<br>
-            <span id="candidate_span"></span><br>
-            Verschlüsselung überprüft.<br>
-            Beweise ok.
-
-            <br>
-
-            PROBLEM - DER STIMMZETTEL KANN NICHT ÜBERPRÜFUNG WERDEN.
-        </div>
-
 
     </div>
 </div>

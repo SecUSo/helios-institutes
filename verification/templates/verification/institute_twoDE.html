@@ -11,15 +11,17 @@
 <div class="header_osze"><img src="{% static 'verification/images/osze_logo.png' %}"></div>
 
 <div class="headline">
-    <h3>Stimmzettelverifizierer</h3></div>
+    <h3>Wahlüberprüfung</h3></div>
 
 <div class="content">
 
     Wir haben Ihre Stimme erhalten und folgenden Prüf-Code dafür ermittelt.<br><br>
-    Wenn <span class="highlight_box">{{ ballot_tracker }}</span> Ihr Prüfcode ist
-    und <span class="highlight_box">{{ candidate }}</span> Ihre Stimme
-    , war Ihre Stimme korrekt verschlüsselt.<br><br>
-    Falls eines der beiden nicht übereinstimmt, holen Sie bitte die Versuchsleitung.
+    Wenn <span class="highlight_box">{{ ballot_tracker }}</span><br><br> Ihr Prüfcode ist
+    und <span class="highlight_box">{{ candidate }}</span> Ihre Stimme,
+    war Ihre Stimme korrekt verschlüsselt.<br><br>
+    Falls eines der beiden nicht übereinstimmt, holen Sie bitte die Versuchsleitung.<br>
+<br>
+    Sie können das Tab nun <span style="font-weight:bold; text-decoration: underline">schließen</span>.
 </div>
 </body>
 </html>

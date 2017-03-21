@@ -11,15 +11,19 @@
 <div class="header_bsi"><img src="{% static 'verification/images/bsi_logo.png' %}"></div>
 
 <div class="headline">
-    <h2>Stimmzettelüberprüfer</h2></div>
+    <h2>Wahlüberprüfung</h2></div>
 
 <div class="content">
 
      Wir haben Ihre Stimme erhalten und folgenden Prüf-Code dafür ermittelt.<br><br>
-    Wenn <span class="highlight_box">{{ ballot_tracker }}</span> Ihr Prüfcode ist
-    und <span class="highlight_box">{{ candidate }}</span> Ihre Stimme
-    , war Ihre Stimme korrekt verschlüsselt.<br><br>
-    Falls eines der beiden nicht übereinstimmt, holen Sie bitte die Versuchsleitung.
+    Wenn <span class="highlight_box">{{ ballot_tracker }}</span><br>
+    <br>
+    Ihr Prüfcode ist
+    und <span class="highlight_box">{{ candidate }}</span> Ihre Stimme,
+    war Ihre Stimme korrekt verschlüsselt.<br><br>
+    Falls eines der beiden nicht übereinstimmt, holen Sie bitte die Versuchsleitung.<br>
+<br>
+    Sie können das Tab nun <span style="font-weight:bold; text-decoration: underline">schließen</span>.
 </div>
 </body>
 </html>

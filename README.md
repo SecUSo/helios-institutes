@@ -1,5 +1,5 @@
-## Helios Verification Institutes
-Helios Verification Institutes is a browser app building the verification module of Karola Marky's master thesis. <br />
+## Verification Institutes
+Verification Institutes is a browser app building the verification module of Karola Marky's master thesis. <br />
 It contains two pages that can be used for verifying an encrypted vote.
 
 ### Institute Old

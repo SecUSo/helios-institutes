@@ -28,7 +28,7 @@ On a production server this probably is located somewhere in /var/www , on a dev
 
 Now you can clone the sourcecode of the application into your directory:
 
-    https://github.com/SECUSO/helios-institutes.git
+    https://github.com/SECUSO/user-study-verification-institutes.git
 
 After that you should have a subdirectory institutes/ and if you created a virtualenv also a subdirectory env/. The actual application are is in the verification/ directory. Please navigate into the institutes directory. 
 
@@ -52,15 +52,10 @@ The application can be accessed under the url `http://localhost:8000`.
 
 ## License
 
-Helios Verification Institutes is licensed under the GPLv3. Copyright (C) 2017 Karola Marky
+User Study Verification Institutes is licensed under the GPLv3. Copyright (C) 2017-2018 Karola Marky
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/.
-
-
-## Contributors
-
-Karola Marky

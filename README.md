@@ -1,12 +1,12 @@
-## Verification Institutes
-Verification Institutes is a browser app building the verification module of Karola Marky's master thesis. <br />
-It contains two pages that can be used for verifying an encrypted vote.
+## User Study Verification Institutes
+Verification Institutes is a browser app to simulate cast-as-intended verification with the Benaloh Challenge.
+The verification institutes belong to the [prototype](https://github.com/Yonjuni/benaloh-challenge-usability-study) which was used in a usability study of the Benaloh Challenge.
 
 ### Institute Old
-This page corresponds to the original Helios Single Ballot Verifier. But be aware, that it is a dummy based on the single page apps in the Repo helios_usability_study. Thus, verification is only mocked.
+This page corresponds to the original Helios Single Ballot Verifier. But be aware, that it is a dummy based on the single page apps in the Repo benaloh-challenge-usability-study. Thus, verification is only mocked.
 
 ### Institute One
-This page corresponds to an improvement suggestion for ballot verification which is presented in my master thesis.  
+This page corresponds to an improvement suggestion for ballot verification. Instead of copying and pasting verification-related data, this data is transfered to the verification institute automatically.   
 
 
 ## Download and more Information
